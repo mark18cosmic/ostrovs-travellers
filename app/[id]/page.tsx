@@ -12,13 +12,14 @@ export async function generateStaticParams() {
 }
 
 // ResortDetail page component
-export default async function ResortDetailPage({ params }: { params: { id: string } }) {
+export default async function ResortDetailPage(params: { params: Promise<{ id: string }> }) {
+  const { id } = await params.params; // Await the `params` to extract the `id`
   const resorts = await fetchResorts(); // Fetch resorts data
-  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Match resort by name
+  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === id); // Match resort by name
 
   if (!resort) {
-    return <p>Resort not found.</p>; // Show message if resort is not found
+    return <p>Resort not found.</p>; // Show message if the resort is not found
   }
 
-  return <ResortDetail params={params} />;
+  return <ResortDetail params={{ id }} />; // Pass the `params` to the `ResortDetail` component
 }
