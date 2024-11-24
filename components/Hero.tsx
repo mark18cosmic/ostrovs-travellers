@@ -62,7 +62,6 @@ const Hero = () => {
     </Carousel>
   </div>
 </div>
-
     )
 }
 
