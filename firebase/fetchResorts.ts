@@ -1,24 +1,23 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { app } from "@/firebase/firebaseConfig"; // Ensure Firebase app is properly initialized
-import { ResortProps } from '@/components/Resorts'; // Adjust according to your Resort type
+// firebase/fetchResorts.ts
+
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { app } from './firebaseConfig'; // Import Firebase app configuration
 
 const db = getFirestore(app);
 
-export const fetchResorts = async (): Promise<ResortProps[]> => {
+export const fetchResorts = async () => {
   try {
-    const querySnapshot = await getDocs(collection(db, "resorts"));
+    const querySnapshot = await getDocs(collection(db, 'resorts'));
     const resorts = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      name: doc.data().name || '', // Ensure these fields match your Firestore schema
-      location: doc.data().location || '',
-      description: doc.data().description || '',
-      image: doc.data().image || '', // Ensure image field exists in Firestore
-      rating: doc.data().rating || '', // Ensure rating field exists in Firestore
-    })) as ResortProps[];
-
+      id: doc.id, // Firebase document ID
+      name: doc.data().name,
+      description: doc.data().description,
+      location: doc.data().location,
+      image: doc.data().image || '', // Make sure image is optional
+    }));
     return resorts;
   } catch (error) {
-    console.error("Error fetching resorts from Firestore:", error);
-    throw error;
+    console.error('Error fetching resorts from Firestore:', error);
+    return []; // Return an empty array in case of error
   }
 };
