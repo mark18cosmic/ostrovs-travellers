@@ -9,8 +9,8 @@ export interface ResortCardProps  {
     location: string; 
     description: string;
     image: string;
-    rating: string;
-    tag: string;
+    rating?: string;
+    tag?: string;
   }
 }
 

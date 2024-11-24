@@ -53,14 +53,17 @@ const Resorts: React.FC<PopularResortsProps> = ({ label }) => {
         <div className="flex flex-row gap-4">
           {resorts.map((resort) => (
             <ResortCard
-              key={resort.id}
-              name={resort.name}
-              location={resort.location} 
-              description={resort.description}
-              image={resort.image}
-              rating={resort.rating}
-              tag={resort.tag}
-            />
+            key={resort.id}
+            resort={{
+              id: resort.id,
+              name: resort.name,
+              location: resort.location,
+              description: resort.description,
+              image: resort.image,
+              rating: resort.rating, // Optional
+              tag: resort.tag || '', // Optional, provide fallback
+            }}
+          />
           ))}
         </div>
       </div>
