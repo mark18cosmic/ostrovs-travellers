@@ -3,9 +3,9 @@ import { Metadata } from 'next';
 import { fetchResorts } from '@/firebase/fetchResorts';
 
 // Export metadata as an asynchronous function for SSR
-export async function generateMetadata({ params }: { params: { name: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const resorts = await fetchResorts(); // Fetch all resorts from Firestore
-  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.name); // Find resort by name
+  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Find resort by name
   
   // Return metadata based on the found resort
   if (resort) {
