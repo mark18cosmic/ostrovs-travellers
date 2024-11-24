@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 const Hero = () => {
     return (
-<div className="flex flex-col md:flex-row items-center min-h-[75vh] justify-between bg-[hsl(var(--background))] p-10 ">
+<div className="flex flex-col md:flex-row items-center min-h-[75vh] md:justify-between bg-[hsl(var(--background))] p-10 gap-4">
   {/* Left Content */}
   <div className="max-w-lg space-y-6">
     <h1 className="text-[hsl(var(--primary))] text-5xl font-bold leading-tight">
@@ -25,7 +25,7 @@ const Hero = () => {
   </div>
 
   {/* Right Carousel */}
-  <div className="w-1/2">
+  <div className="md:w-1/2">
     <Carousel className="relative overflow-hidden rounded-lg shadow-lg bg-[hsl(var(--card))] p-4">
       <CarouselContent className="flex items-center gap-4">
         <CarouselItem className="flex-shrink-0">
