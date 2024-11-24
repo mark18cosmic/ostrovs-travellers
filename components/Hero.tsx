@@ -7,6 +7,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from 'next/image'
+import { Button } from './ui/button'
 
 const Hero = () => {
     return (
@@ -19,9 +20,9 @@ const Hero = () => {
     <p className="text-[hsl(var(--foreground))] text-lg leading-relaxed">
       Best travel agency in the Maldives providing the best resorts with cheap packages for your travelling needs.
     </p>
-    <button className="px-6 py-3  text-white rounded-lg shadow-md transition">
+    <Button className="text-white rounded-lg shadow-md transition">
       Explore Destinations
-    </button>
+    </Button>
   </div>
 
   {/* Right Carousel */}
@@ -34,7 +35,7 @@ const Hero = () => {
             alt="Image1"
             width={300}
             height={400}
-            className="rounded-lg shadow-md"
+            className="rounded-lg object-fit shadow-md"
           />
         </CarouselItem>
         <CarouselItem className="flex-shrink-0">
@@ -43,7 +44,7 @@ const Hero = () => {
             alt="Image2"
             width={300}
             height={400}
-            className="rounded-lg shadow-md"
+            className="rounded-lg object-fit shadow-md"
           />
         </CarouselItem>
         <CarouselItem className="flex-shrink-0">
@@ -52,7 +53,7 @@ const Hero = () => {
             alt="Image3"
             width={300}
             height={400}
-            className="rounded-lg shadow-md"
+            className="rounded-lg object-fit shadow-md"
           />
         </CarouselItem>
       </CarouselContent>
