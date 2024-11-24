@@ -11,13 +11,13 @@ import { Button } from './ui/button'
 
 const Hero = () => {
     return (
-<div className="flex flex-col md:flex-row items-center min-h-[75vh] md:justify-between bg-[hsl(var(--background))] p-7 md:p-10 gap-4">
+<div className="flex flex-col md:flex-row items-center md:min-h-[75vh] md:justify-between bg-[hsl(var(--background))] p-7 md:p-10 gap-4">
   {/* Left Content */}
   <div className="max-w-lg space-y-6">
     <h1 className="text-[hsl(var(--primary))] text-5xl font-bold leading-tight">
       Ostrovs Travellers
     </h1>
-    <p className="text-[hsl(var(--foreground))] text-lg leading-relaxed">
+    <p className="text-[hsl(var(--foreground))] text-lg text-justify leading-relaxed">
       Best travel agency in the Maldives providing the best resorts with cheap packages for your travelling needs.
     </p>
     <Button className="text-white rounded-lg shadow-md transition">
