@@ -26,7 +26,7 @@ const Hero = () => {
   </div>
 
   {/* Right Carousel */}
-  <div className="md:w-1/2">
+  <div className="md:w-1/2 hidden md:flex">
     <Carousel className="relative overflow-hidden rounded-lg shadow-lg bg-[hsl(var(--card))] p-4">
       <CarouselContent className="flex items-center gap-4">
         <CarouselItem className="flex-shrink-0">
