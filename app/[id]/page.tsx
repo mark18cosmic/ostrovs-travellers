@@ -1,26 +1,5 @@
 // Import necessary modules and components
-import { Metadata } from 'next';
 import { fetchResorts } from '@/firebase/fetchResorts';
-
-// Export metadata as an asynchronous function for SSR
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const resorts = await fetchResorts(); // Fetch all resorts from Firestore
-  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Find resort by name
-  
-  // Return metadata based on the found resort
-  if (resort) {
-    return {
-      title: `${resort.name} | Ostrovs Travellers`, // Use the resort's name for the title
-      description: `Discover the beauty of ${resort.name} and explore its amenities.`, // Description based on resort
-    };
-  }
-
-  // Fallback metadata if resort not found
-  return {
-    title: 'Ostrovs Travellers',
-    description: 'Explore the best resorts worldwide and find your perfect getaway.',
-  };
-}
 
 // Generate static params for SSG
 export async function generateStaticParams() {
