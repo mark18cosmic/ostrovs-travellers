@@ -13,7 +13,10 @@ export const fetchResorts = async () => {
       name: doc.data().name,
       description: doc.data().description,
       location: doc.data().location,
-      image: doc.data().image || '', // Make sure image is optional
+      image: doc.data().image || '',
+      rating: doc.data().rating,
+      tag: doc.data().tag // Make sure image is optional
+      // Make sure image is optional
     }));
     return resorts;
   } catch (error) {
