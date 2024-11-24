@@ -1,18 +1,17 @@
-// Import necessary modules and components
-import { fetchResorts } from '@/firebase/fetchResorts';
+// app/[id]/page.tsx (This is your dynamic route page for ResortDetail)
+
+import { fetchResorts } from '@/firebase/fetchResorts'; // Ensure this is the correct path to your data-fetching function
 
 // Generate static params for SSG
 export async function generateStaticParams() {
-  const resorts = await fetchResorts(); // Fetch all resorts
+  const resorts = await fetchResorts(); // Fetch all resorts from Firebase
   return resorts.map((resort) => ({
     id: resort.name.replace(/\s+/g, '-').toLowerCase(), // Generate path based on resort name
   }));
 }
 
 // ResortDetail page component
-export default async function ResortDetail({ params }: { params: {
-  id: string;
-} }) {
+export default async function ResortDetail({ params }: { params: { id: string } }) {
   const resorts = await fetchResorts(); // Fetch resorts data
   const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Match resort by name
 
@@ -25,7 +24,7 @@ export default async function ResortDetail({ params }: { params: {
       <h1 className="text-2xl text-primary">{resort.name}</h1>
       <p>{resort.description}</p>
       <p className="text-sm text-gray-500">Location: {resort.location}</p>
-      {/* Render resort details using ResortCard or similar component */}
-          </div>
+      {/* Render resort details using ResortCard or a similar component */}
+    </div>
   );
 }
