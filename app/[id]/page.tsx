@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 
 // ResortDetail page component
 export default async function ResortDetail({ params }: { params: {
-  id: string; name: string 
+  id: string;
 } }) {
   const resorts = await fetchResorts(); // Fetch resorts data
   const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Match resort by name
