@@ -19,7 +19,7 @@ const Hero = () => {
     <p className="text-[hsl(var(--foreground))] text-lg leading-relaxed">
       Best travel agency in the Maldives providing the best resorts with cheap packages for your travelling needs.
     </p>
-    <button className="px-6 py-3 bg-[hsl(var(--blue))] text-white rounded-lg shadow-md hover:bg-blue-600 transition">
+    <button className="px-6 py-3  text-white rounded-lg shadow-md transition">
       Explore Destinations
     </button>
   </div>
