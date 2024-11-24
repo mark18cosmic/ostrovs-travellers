@@ -54,15 +54,17 @@ const Resorts: React.FC<PopularResortsProps> = ({ label }) => {
           {resorts.map((resort) => (
             <ResortCard
               key={resort.id}
-              resort={{
-                ...resort,
-                tag: resort.tag // Using rating as tag to satisfy the type requirement
-              }}
+              name={resort.name}
+              location={resort.location} 
+              description={resort.description}
+              image={resort.image}
+              rating={resort.rating}
+              tag={resort.tag}
             />
           ))}
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 
