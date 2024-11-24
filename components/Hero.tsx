@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 const Hero = () => {
     return (
-<div className="flex flex-col md:flex-row items-center min-h-[75vh] md:justify-between bg-[hsl(var(--background))] p-10 gap-4">
+<div className="flex flex-col md:flex-row items-center min-h-[75vh] md:justify-between bg-[hsl(var(--background))] p-7 md:p-10 gap-4">
   {/* Left Content */}
   <div className="max-w-lg space-y-6">
     <h1 className="text-[hsl(var(--primary))] text-5xl font-bold leading-tight">
