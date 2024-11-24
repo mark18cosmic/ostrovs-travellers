@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: { params: { name: string } })
   // Return metadata based on the found resort
   if (resort) {
     return {
-      title: `${resort.name} | Your Resort Finder`, // Use the resort's name for the title
+      title: `${resort.name} | Ostrovs Travellers`, // Use the resort's name for the title
       description: `Discover the beauty of ${resort.name} and explore its amenities.`, // Description based on resort
     };
   }
 
   // Fallback metadata if resort not found
   return {
-    title: 'Resort Finder',
+    title: 'Ostrovs Travellers',
     description: 'Explore the best resorts worldwide and find your perfect getaway.',
   };
 }

@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import ResortCard from "@/components/ResortCard";
 import Resorts from "@/components/Resorts";
 
 export default function Home() {
