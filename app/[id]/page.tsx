@@ -1,54 +1,44 @@
-"use client";
+// Import necessary modules and components
+import { Metadata } from 'next';
+import { fetchResorts } from '@/firebase/fetchResorts';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { fetchResorts } from "@/firebase/fetchResorts"; // Ensure this function fetches resorts from Firebase
-
-export default function ResortDetail() {
-  const router = useRouter();
-  const [resort, setResort] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Destructure `name` from `router.query` only if `router.query` is defined
-  const { name } = router.query || {};
-
-  useEffect(() => {
-    // Ensure the router is ready before fetching data
-    if (router.isReady && name) {
-      setIsLoading(false); // Now router is ready
-
-      const fetchResortData = async () => {
-        try {
-          // Fetch all resorts or query Firestore for the resort using its name
-          const resorts = await fetchResorts();
-          const searchName = Array.isArray(name) ? name[0] : name;
-
-          // Search for the resort by its name
-          const foundResort = resorts.find(
-            (resort) => resort.name.toLowerCase() === searchName.toLowerCase()
-          );
-
-          if (foundResort) {
-            setResort(foundResort);
-          } else {
-            // Resort not found - redirect to a 404 page
-            router.push("/404");
-          }
-        } catch (error) {
-          console.error("Error fetching resorts:", error);
-        }
-      };
-
-      fetchResortData();
-    }
-  }, [name, router]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
+// Export metadata as an asynchronous function for SSR
+export async function generateMetadata({ params }: { params: { name: string } }): Promise<Metadata> {
+  const resorts = await fetchResorts(); // Fetch all resorts from Firestore
+  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.name); // Find resort by name
+  
+  // Return metadata based on the found resort
+  if (resort) {
+    return {
+      title: `${resort.name} | Your Resort Finder`, // Use the resort's name for the title
+      description: `Discover the beauty of ${resort.name} and explore its amenities.`, // Description based on resort
+    };
   }
 
+  // Fallback metadata if resort not found
+  return {
+    title: 'Resort Finder',
+    description: 'Explore the best resorts worldwide and find your perfect getaway.',
+  };
+}
+
+// Generate static params for SSG
+export async function generateStaticParams() {
+  const resorts = await fetchResorts(); // Fetch all resorts
+  return resorts.map((resort) => ({
+    id: resort.name.replace(/\s+/g, '-').toLowerCase(), // Generate path based on resort name
+  }));
+}
+
+// ResortDetail page component
+export default async function ResortDetail({ params }: { params: {
+  id: string; name: string 
+} }) {
+  const resorts = await fetchResorts(); // Fetch resorts data
+  const resort = resorts.find((rest) => rest.name.replace(/\s+/g, '-').toLowerCase() === params.id); // Match resort by name
+
   if (!resort) {
-    return <p>Resort not found.</p>;
+    return <p>Resort not found.</p>; // Show message if resort is not found
   }
 
   return (
@@ -56,6 +46,7 @@ export default function ResortDetail() {
       <h1 className="text-2xl text-primary">{resort.name}</h1>
       <p>{resort.description}</p>
       <p className="text-sm text-gray-500">Location: {resort.location}</p>
-    </div>
+      {/* Render resort details using ResortCard or similar component */}
+          </div>
   );
 }

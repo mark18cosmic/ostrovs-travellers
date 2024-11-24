@@ -16,7 +16,7 @@ export interface ResortCardProps  {
 
 export default function ResortCard ({ resort } : ResortCardProps) {
   return (
-    <Link href={`/${resort.name.toLowerCase()}`}>
+    <Link href={`/${encodeURIComponent(resort.name.replace(/\s+/g, '-').toLowerCase())}`}>
       <div className="p-4 bg-highlight rounded-lg shadow-md hover:scale-105 transition-transform">
         <div>
             <Image src={resort.image} alt="image" width={50} height={100}/>
