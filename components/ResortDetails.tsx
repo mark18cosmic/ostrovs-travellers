@@ -49,7 +49,7 @@ export default function ResortDetail({ params }: { params: ResortParams }) {
     }, [params, router]);
 
     // Display an error message if no resort is found
-    if (!resort) return <div>Resort not found</div>;
+    if (!resort) return <div className='min-h-screen'></div>;
 
     // Display the resort content
     return (
