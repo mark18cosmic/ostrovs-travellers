@@ -17,7 +17,7 @@ const Hero = () => {
         <h1 className="text-[hsl(var(--primary))] text-5xl md:text-6xl font-extrabold leading-tight">
           Ostrovs Travellers
         </h1>
-        <p className="text-[hsl(var(--foreground))] text-lg md:text-xl">
+        <p className="text-[hsl(var(--foreground))] text-justify text-lg md:text-xl">
           Discover the Maldives with the best travel agency. We provide luxurious resorts and affordable packages tailored to your travel needs.
         </p>
         <Button>
