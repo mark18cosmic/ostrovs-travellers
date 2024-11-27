@@ -11,7 +11,7 @@ import { Button } from './ui/button'
 
 const Hero = () => {
   return (
-    <div className="flex md:justify-between flex-col md:flex-row items-center md:min-h-[75vh] bg-[hsl(var(--background))] p-8 md:p-12 gap-8">
+    <div className="flex md:justify-between flex-col md:flex-row items-center md:min-h-[75vh] min-h-[50vh] bg-[hsl(var(--background))] p-8 md:p-12 gap-8">
       {/* Left Content */}
       <div className="flex flex-col items-start space-y-6 md:w-1/2">
         <h1 className="text-[hsl(var(--primary))] text-5xl md:text-6xl font-extrabold leading-tight">
