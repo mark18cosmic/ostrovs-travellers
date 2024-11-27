@@ -76,11 +76,7 @@ export default function ResortDetail({ params }: { params: ResortParams }) {
                     <p className="font-light">{resort.description}</p>
                 </div>
             </div>
-            <div>
-                <p className="flex items-center gap-1 flex-row">
-                    Location: {resort.location}
-                </p>
-            </div>
+
             <Resorts label='You may also like'/>
         </main>
     );
