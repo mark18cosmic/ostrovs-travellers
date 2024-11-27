@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { fetchResorts } from '@/firebase/fetchResorts';
+import Resorts from './Resorts';
 
 // Define the type for Resort
 interface Resort {
@@ -65,6 +66,11 @@ export default function ResortDetail({ params }: { params: ResortParams }) {
             <div className="flex flex-col gap-2">
                 <div className="flex flex-row items-center justify-between">
                     <h3 className="text-xl md:text-2xl font-semibold">{resort.name}</h3>
+                    <div>
+                <p className="flex items-center gap-1 flex-row">
+                    <span className='font-semibold'>Location:</span> {resort.location}
+                </p>
+            </div>
                 </div>
                 <div>
                     <p className="font-light">{resort.description}</p>
@@ -75,6 +81,7 @@ export default function ResortDetail({ params }: { params: ResortParams }) {
                     Location: {resort.location}
                 </p>
             </div>
+            <Resorts label='You may also like'/>
         </main>
     );
 }

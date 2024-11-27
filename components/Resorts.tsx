@@ -46,9 +46,9 @@ const Resorts: React.FC<PopularResortsProps> = ({ label }) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-7 md:p-10 text-black">
+    <div className="flex flex-col gap-4  text-black">
       <div>
-        <h2 className="font-semibold text-xl md:text-3xl">{label}</h2>
+        <h2 className="font-semibold text-xl md:text-2xl">{label}</h2>
       </div>
       <div className="flex overflow-x-scroll w-full py-4 scrollbar-hide gap-4">
         <div className="flex flex-row gap-4">
