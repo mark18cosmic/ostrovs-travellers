@@ -11,22 +11,22 @@ import { Button } from './ui/button'
 
 const Hero = () => {
   return (
-    <div className="flex justify-between flex-col md:flex-row items-center md:min-h-[75vh] bg-[hsl(var(--background))] p-8 md:p-12 gap-8">
+    <div className="flex md:justify-between flex-col md:flex-row items-center md:min-h-[75vh] bg-[hsl(var(--background))] p-8 md:p-12 gap-8">
       {/* Left Content */}
-      <div className="flex flex-col items-start space-y-6 w-1/2">
+      <div className="flex flex-col items-start space-y-6 md:w-1/2">
         <h1 className="text-[hsl(var(--primary))] text-3xl md:text-6xl font-extrabold leading-tight">
           Ostrovs Travellers
         </h1>
         <p className="text-[hsl(var(--foreground))] text-lg md:text-xl leading-relaxed">
           Discover the Maldives with the best travel agency. We provide luxurious resorts and affordable packages tailored to your travel needs.
         </p>
-        <Button className="px-6 py-3 bg-[hsl(var(--primary))] text-white rounded-lg shadow-md hover:shadow-xl hover:bg-[hsl(var(--primary-hover))] transition">
+        <Button>
           Learn More
         </Button>
       </div>
 
       {/* Right Carousel */}
-      <div className="w-1/2 hidden md:flex items-center justify-center">
+      <div className="md:w-1/2 hidden md:flex items-center justify-center">
         <Carousel className="w-full h-[24rem] rounded-lg overflow-hidden shadow-lg bg-[hsl(var(--card))]">
           <CarouselContent className="flex items-center gap-4">
             {/* Carousel Item 1 */}
