@@ -14,10 +14,10 @@ const Hero = () => {
     <div className="flex md:justify-between flex-col md:flex-row items-center md:min-h-[75vh] bg-[hsl(var(--background))] p-8 md:p-12 gap-8">
       {/* Left Content */}
       <div className="flex flex-col items-start space-y-6 md:w-1/2">
-        <h1 className="text-[hsl(var(--primary))] text-3xl md:text-6xl font-extrabold leading-tight">
+        <h1 className="text-[hsl(var(--primary))] text-5xl md:text-6xl font-extrabold leading-tight">
           Ostrovs Travellers
         </h1>
-        <p className="text-[hsl(var(--foreground))] text-lg md:text-xl leading-relaxed">
+        <p className="text-[hsl(var(--foreground))] text-lg md:text-xl">
           Discover the Maldives with the best travel agency. We provide luxurious resorts and affordable packages tailored to your travel needs.
         </p>
         <Button>
