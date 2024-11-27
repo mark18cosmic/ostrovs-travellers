@@ -25,7 +25,7 @@ export default function ResortCard({ resort }: ResortCardProps) {
                         alt={resort.name}
                         layout="fill"
                         objectFit="cover"
-                        className="transition-transform duration-300 ease-in-out hover:scale-110"
+                        className=""
                     />
                 </div>
 
