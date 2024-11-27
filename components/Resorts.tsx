@@ -40,6 +40,7 @@ const Resorts: React.FC<PopularResortsProps> = ({ label }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center">
+
       </div>
     );
   }
@@ -49,7 +50,7 @@ const Resorts: React.FC<PopularResortsProps> = ({ label }) => {
       <div>
         <h2 className="font-semibold text-xl md:text-3xl">{label}</h2>
       </div>
-      <div className="flex overflow-x-scroll w-full scrollbar-hide gap-4">
+      <div className="flex overflow-x-scroll w-full py-4 scrollbar-hide gap-4">
         <div className="flex flex-row gap-4">
           {resorts.map((resort) => (
             <ResortCard
